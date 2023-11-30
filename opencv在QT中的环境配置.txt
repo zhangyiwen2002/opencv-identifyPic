@@ -1,0 +1,53 @@
+1、添加工程的头文件目录：在工程的.pro文件中添加如下语句
+INCLUDEPATH += E:\OPENCV--study\OpenCV-MinGW-Build-OpenCV-3.4.6\include
+后面的为OpenCV的头文件路径
+
+2、添加文件引用的.a静态库路径：在工程的.pro文件中添 加如下语句
+LIBS += E:\OPENCV--study\OpenCV-MinGW-Build-OpenCV-3.4.6\x86\mingw\lib\libopencv_*.a
+后面的路径为OpenCV的库文件路径
+          
+3、把QT工程调整为debug工程。
+	(上面3个步骤必须在每个新的工程都要设置)
+	
+4、在系统中添加OpenCV的bin环境变量：计算机-》属性-》高级系统设置-》环境变量
+	-》系统环境变量-》Path-》编辑
+	在原环境变量中添加“E:\OPENCV--study\OpenCV-MinGW-Build-OpenCV-3.4.6\x86\mingw\bin;
+	E:\QT\5.14.2\mingw73_32\bin;”
+完成后需要重启电脑使设置的环境变量生效。(多个项目只用设置一次)	
+	需要添加2个环境变量，
+	1.“E:\OPENCV--study\OpenCV-MinGW-Build-OpenCV-3.4.6\x86\mingw\bin;”是OPENCV动态库
+	的路径，
+	2.“E:\QT\5.14.2\mingw73_32\bin;”是QT编译器的路径。
+	
+测试代码
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
+   cv::Mat image;
+   image = cv::imread("D:\\Documents\\Pictures\\111.bmp");
+   cv::namedWindow("Original Image");
+   cv::imshow("Original Image", image);   
+
+/*
+以上QT为5.14.2，编译器为mingw73_32
+操作系统为WIN10 64位
+OPENCV使用的库为在“操作系统为WIN10 64位，QT mingw73_32”
+编译出来的OpenCV-3.4.6库，为32位。 
+*/        
+            
+            
+            
+          
+           
+            
+            
+            
+            
+            
+            
+         
+          
+            
+
+
+
